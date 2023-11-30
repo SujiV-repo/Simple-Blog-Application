@@ -69,6 +69,14 @@ Before you begin, ensure you have met the following requirements:
 
       http://localhost:8080/api-endpoint
 
+### Authentication
+  The API endpoints require JWT for authentication, include the JWT token in the Authorization Header as 'Bearer token' for secured endpoints.
+
+### Swagger UI
+  Access the Swagger UI for the interactive API documentation:
+
+      http://localhost:8080/swagger-ui.html
+
 ### End Points
 
   ### Posts
@@ -84,8 +92,31 @@ Before you begin, ensure you have met the following requirements:
   * **Response:**
     
     ```bash
-        
-     
+
+  **Get All Posts**
+  * **Endpoint:** ''
+  * **Description:** 
+  * **Request Body:**
+    
+    ```bash
+          
+          
+  * **Response:**
+    
+    ```bash
+
+  
+  **Get Post By Id**
+  * **Endpoint:** ''
+  * **Description:** 
+  * **Request Body:**
+    
+    ```bash
+          
+          
+  * **Response:**
+    
+    ```bash
     
 ## Configuration
 ### Application Properties
