@@ -79,6 +79,11 @@ Before you begin, ensure you have met the following requirements:
 
 ### End Points
 
+  ### Category
+
+  ****
+
+  
   ### Posts
 
   **Creating Posts**
