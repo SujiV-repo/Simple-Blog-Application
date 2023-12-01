@@ -26,7 +26,7 @@ Blog Application is a blogging application to create blogs, posts and commenting
 
 ## Schema
 
-
+![BlogApplication](https://github.com/SujiV-repo/Simple-Blog-Application/assets/65115305/0e474e44-3efc-4212-be00-d0431c964904)
 
 
 ## Prerequisites
@@ -341,7 +341,48 @@ Before you begin, ensure you have met the following requirements:
     
     ```bash
           Commented deleted successfully
-    
+
+### Authorization
+
+**Logging into the Application**
+* **Endpoint:** 'POST/api/auth/login'
+* **Another Endpoint:** 'POST/api/auth/signin'
+* **Description:** Registered user can login to the application either as Admin or User.
+* **Request Body**
+  
+  ```bash
+      {
+        "usernameOrEmail": -->providing the registered user name,
+        "password": -->and the password here"
+      }
+  
+* **Response**
+
+  ```bash
+      {
+        "accesToken": --> a token will be getting generated to authorize,
+        "tokenType": "Bearer"
+      }
+
+**Registering as a User**
+* **Endpoint:** 'POST/api/auth/register'
+* **Another Endpoint:** 'POST/api/auth/signup'
+* **Description:** To register as an user to this application.
+* **Request Body**
+  
+  ```bash
+      {
+        "name": -->Name of the user,
+        "username": -->entering a new username,
+        "email": --> user's can enter his email,
+        "password": user can enter their own password
+      }
+  
+* **Response**
+
+  ```bash
+      User registered successfully!
+   
 ## Configuration
 ### Application Properties
 
