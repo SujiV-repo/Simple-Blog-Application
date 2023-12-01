@@ -75,7 +75,7 @@ Before you begin, ensure you have met the following requirements:
 ### Swagger UI
   Access the Swagger UI for the interactive API documentation:
 
-      http://localhost:8080/swagger-ui.html
+      http://localhost:8080/swagger-ui/index.html#/
 
 ### End Points
 
@@ -83,7 +83,7 @@ Before you begin, ensure you have met the following requirements:
 
   **Adding a Category**
   * **Endpoint:** 'POST/api/categories'
-  * **Description:** Creating a new Category to categorize posts based on the topic
+  * **Description:** Creating a new category to categorize posts based on the topic.
   * **Request Body:**
     
     ```bash
@@ -95,19 +95,19 @@ Before you begin, ensure you have met the following requirements:
 
   * **Response:**
     
-        ```bash
+    ```bash
         {
           "id": 1,
           "name": "Science",
           "description": "Science Related Category"
         }
 
-  **Get all categories**
+  **Get all Categories**
   * **Endpoint:** 'GET/api/categories'
-  * **Description:** Getting all the categories that are present in the application
+  * **Description:** Getting all the categories that are present in the application.
   * **Response:**
     
-        ```bash
+    ```bash
         [
           {
             "id": 1,
@@ -130,71 +130,217 @@ Before you begin, ensure you have met the following requirements:
 
   * **Response:**
     
-        ```bash
+    ```bash
           {
             "id": 1,
             "name": "Science And Maths",
             "description": "Science and Maths Related Category"
           }
 
-  **Getting a particular category**
+  **Getting a particular Category**
   * **Endpoint:** 'GET/api/categories/{id}'
-  * **Description:** Getting a particular category based on the id
+  * **Description:** Getting a particular category based on the id.
   * **Response:**
     
-        ```bash
+    ```bash
           {
             "id": 1,
             "name": "Science And Maths",
             "description": "Science and Maths Related Category"
           }
 
-  **Deleting a particular category**
+  **Deleting a particular Category**
   * **Endpoint:** 'DELETE/api/categories/{id}'
-  * **Description:** Deleting a particular category based on the id
+  * **Description:** Deleting a particular category based on the id.
   * **Response:**
     
-        ```bash
+    ```bash
           Category deleted successfully!
   
   ### Posts
 
   **Creating Posts**
   * **Endpoint:** 'POST/api/posts'
-  * **Description:** Creating a new blog post
+  * **Description:** Creating a new blog post.
   * **Request Body:**
     
     ```bash
-          
+          {
+            "id": 1,
+            "title": "Science Research",
+            "description": "Scientific Research related post",
+            "content": "The research based on the scientifical experiments conducted",
+            "categoryId": 1
+          }
           
   * **Response:**
     
     ```bash
+            {
+              "id": 1,
+              "title": "Science Research",
+              "description": "Scientific Research related post",
+              "content": "The research based on the scientifical experiments conducted",
+              "comments": null,
+              "categoryId": 1
+            }
 
   **Get All Posts**
-  * **Endpoint:** ''
-  * **Description:** 
-  * **Request Body:**
-    
-    ```bash
-          
-          
+  * **Endpoint:** 'GET/api/posts'
+  * **Description:** Getting all the posts present.      
   * **Response:**
     
     ```bash
-
+        {
+          "content": [
+            {
+              "id": 1,
+              "title": "Science Research",
+              "description": "Scientific Research related post",
+              "content": "The research based on the scientifical experiments conducted",
+              "comments": [],
+              "categoryId": 1
+            }
+          ],
+        "pageNo": 0,
+        "pageSize": 10,
+        "totalElements": 1,
+        "totalPages": 1,
+        "last": true
+      }
   
   **Get Post By Id**
-  * **Endpoint:** ''
-  * **Description:** 
-  * **Request Body:**
-    
-    ```bash
-          
-          
+  * **Endpoint:** 'GET/api/posts/{id}'
+  * **Description:** Retrieving a particular post.       
   * **Response:**
     
     ```bash
+        {
+          "id": 1,
+          "title": "Science Research",
+          "description": "Scientific Research related post",
+          "content": "The research based on the scientifical experiments conducted",
+          "comments": [],
+          "categoryId": 1
+        }
+
+  **Updating a particular Post**
+  * **Endpoint:** 'PUT/api/posts/{id}'
+  * **Description:** Updating a post name, title, description, content based on the Id.
+  * **Request Body:**
+    
+    ```bash
+          {
+            "id": 1,
+            "title": "Science Research",
+            "description": "Updated Scientific Research related post",
+            "content": "The research based on the scientifical experiments conducted with updated description",
+            "categoryId": 1
+          }
+
+  * **Response:**
+    
+    ```bash
+          {
+            "id": 1,
+            "title": "Science Research",
+            "description": "Updated Scientific Research related post",
+            "content": "The research based on the scientifical experiments conducted with updated description",
+            "comments": [],
+            "categoryId": 1
+          }
+
+  **Deleting a particular Post**
+  * **Endpoint:** 'DELETE/api/posts/{id}'
+  * **Description:** Deleting a particular post based on the id.
+  * **Response:**
+    
+    ```bash
+          Post Entity deleted successfully
+
+  ### Comments
+
+  **Adding a Comment to a Post**
+  * **Endpoint:** 'POST/api/posts/{postId}/comments'
+  * **Description:** Adding a comment to a particular post.
+  * **Request Body:**
+    
+    ```bash
+      {
+        "id": 1,
+        "name": "John",
+        "email": "john98@gmail.com",
+        "body": "Fantastic Science post!"
+      }
+
+  * **Response:**
+    
+    ```bash
+        {
+          "id": 1,
+          "name": "John",
+          "email": "john98@gmail.com",
+          "body": "Fantastic Science post!"
+        }
+
+  **Get all Comments for a particular Post**
+  * **Endpoint:** 'GET/api/posts/{postId}/comments'
+  * **Description:** Getting all the comments that are commented for a particular post.
+  * **Response:**
+    
+    ```bash
+        [
+          {
+            "id": 1,
+            "name": "John",
+            "email": "john98@gmail.com",
+            "body": "Fantastic Science post!"
+          }
+        ]
+
+  **Updating a particular Comment for a post**
+  * **Endpoint:** 'PUT/api/posts/{postId}/comments/{id}'
+  * **Description:** Updating or rewriting a particular comment for a post based on the comment Id.
+  * **Request Body:**
+    
+    ```bash
+          {
+            "id": 1,
+            "name": "John",
+            "email": "john98@gmail.com",
+            "body": "Updated Fantastic Science post!"
+          }
+
+  * **Response:**
+    
+    ```bash
+          {
+            "id": 1,
+            "name": "John",
+            "email": "john98@gmail.com",
+            "body": "Updated Fantastic Science post!"
+          }
+
+  **Getting a particular Comment for a Post**
+  * **Endpoint:** 'GET/api/posts/{postId}/comments/{commentId}'
+  * **Description:** Getting a particular comment for a particular post based on the id.
+  * **Response:**
+    
+    ```bash
+          {
+            "id": 1,
+            "name": "John",
+            "email": "john98@gmail.com",
+            "body": "Updated Fantastic Science post!"
+          }
+
+  **Deleting a particular Comment**
+  * **Endpoint:** 'DELETE/api/posts/{postsId}/comments/{id}'
+  * **Description:** Deleting a particular comment based on the id for a paticular post.
+  * **Response:**
+    
+    ```bash
+          Commented deleted successfully
     
 ## Configuration
 ### Application Properties
