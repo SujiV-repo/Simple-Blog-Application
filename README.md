@@ -81,8 +81,81 @@ Before you begin, ensure you have met the following requirements:
 
   ### Category
 
-  ****
+  **Adding a Category**
+  * **Endpoint:** 'POST/api/categories'
+  * **Description:** Creating a new Category to categorize posts based on the topic
+  * **Request Body:**
+    
+    ```bash
+          {
+            "id": 1,
+            "name": "Science",
+            "description": "Science Related Category"
+          }
 
+  * **Response:**
+    
+        ```bash
+        {
+          "id": 1,
+          "name": "Science",
+          "description": "Science Related Category"
+        }
+
+  **Get all categories**
+  * **Endpoint:** 'GET/api/categories'
+  * **Description:** Getting all the categories that are present in the application
+  * **Response:**
+    
+        ```bash
+        [
+          {
+            "id": 1,
+            "name": "Science",
+            "description": "Science Related Category"
+          }
+        ]
+
+  **Updating a particular Category**
+  * **Endpoint:** 'PUT/api/categories/{id}'
+  * **Description:** Updating a category name or description based on the Id
+  * **Request Body:**
+    
+    ```bash
+          {
+            "id": 1,
+            "name": "Science And Maths",
+            "description": "Science and Maths Related Category"
+          }
+
+  * **Response:**
+    
+        ```bash
+          {
+            "id": 1,
+            "name": "Science And Maths",
+            "description": "Science and Maths Related Category"
+          }
+
+  **Getting a particular category**
+  * **Endpoint:** 'GET/api/categories/{id}'
+  * **Description:** Getting a particular category based on the id
+  * **Response:**
+    
+        ```bash
+          {
+            "id": 1,
+            "name": "Science And Maths",
+            "description": "Science and Maths Related Category"
+          }
+
+  **Deleting a particular category**
+  * **Endpoint:** 'DELETE/api/categories/{id}'
+  * **Description:** Deleting a particular category based on the id
+  * **Response:**
+    
+        ```bash
+          Category deleted successfully!
   
   ### Posts
 
